@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        tools:context=".views.fragments.HomeLandingFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:padding="0dp"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/mainBg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/backgroundColor">
+                <RelativeLayout
+                    android:id="@+id/topContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="20dp">
+                    <LinearLayout
+                        android:id="@+id/leftContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:orientation="horizontal"
+                        tools:ignore="RelativeOverlap"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/userImage"
+                            android:layout_width="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_profile"
+                            android:layout_marginLeft="10dp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/userFirstname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/nimbus_bold"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="15dp"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Admin"
+                            tools:ignore="RelativeOverlap"
+                            android:layout_marginLeft="15dp" />
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/menuBtn"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topContent">
+                    <LinearLayout
+                        android:id="@+id/firstRowMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:id="@+id/student_card"
+                            android:layout_height="170dp"
+                            android:layout_weight=".50"
+                            android:layout_margin="10dp"
+                            app:cardCornerRadius="15dp">
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:background="@drawable/card_bg"
+                                android:layout_height="match_parent"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingLeft="5dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:paddingRight="5dp"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/getMoney"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    app:srcCompat="@drawable/ic_users" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/isw_cash_out_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="20sp"
+                                    android:fontFamily="@font/nimbus_regular"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:text="Students"
+                                    tools:ignore="RelativeOverlap"/>
+
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:id="@+id/exam_hall_card"
+                            android:layout_height="170dp"
+                            android:layout_weight=".50"
+                            android:layout_margin="10dp"
+                            app:cardCornerRadius="15dp">
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:background="@drawable/card_bg"
+                                android:layout_height="match_parent"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/sendCash"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    app:srcCompat="@drawable/ic_home" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/byCashTxt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="20sp"
+                                    android:fontFamily="@font/nimbus_regular"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:text="Exam Halls"
+                                    tools:ignore="RelativeOverlap"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/secondRowMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/firstRowMenu"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:id="@+id/exam_card"
+                            android:layout_height="170dp"
+                            android:layout_weight=".50"
+                            android:layout_margin="10dp"
+                            app:cardCornerRadius="15dp">
+                            <LinearLayout
+                                android:id="@+id/billPayLayout"
+                                android:layout_width="fill_parent"
+                                android:background="@drawable/card_bg"
+                                android:layout_height="match_parent"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingLeft="5dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:paddingRight="5dp"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/billPayIcon"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    app:srcCompat="@drawable/ic_layers" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/billPaytxt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="20sp"
+                                    android:fontFamily="@font/nimbus_regular"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:text="Departments"
+                                    tools:ignore="RelativeOverlap" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="0dp"
+                            android:id="@+id/allocate_seat_card"
+                            android:layout_height="170dp"
+                            android:layout_weight=".50"
+                            app:cardCornerRadius="15dp"
+                            android:layout_margin="10dp">
+                            <LinearLayout
+                                android:id="@+id/transactionLayout"
+                                android:layout_width="fill_parent"
+                                android:background="@drawable/card_bg"
+                                android:layout_height="match_parent"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/transHistory"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    app:srcCompat="@drawable/ic_server" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/historyTxt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="20sp"
+                                    android:fontFamily="@font/nimbus_regular"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:text="Allocate Seats"
+                                    tools:ignore="RelativeOverlap"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!--                <RelativeLayout-->
+                <!--                    android:id="@+id/listTrans"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_below="@+id/menuBtn">-->
+                <!--                    <com.google.android.material.card.MaterialCardView-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:id="@+id/listCard"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:background="@drawable/dash_bg">-->
+                <!--                        <RelativeLayout-->
+                <!--                            android:id="@+id/cardListRel"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:padding="10dp"-->
+                <!--                            android:layout_height="match_parent">-->
+                <!--                            <LinearLayout-->
+                <!--                                android:id="@+id/recentTransTxt"-->
+                <!--                                android:layout_width="match_parent"-->
+                <!--                                android:layout_height="match_parent"-->
+                <!--                                android:orientation="vertical">-->
+                <!--                                <com.google.android.material.textview.MaterialTextView-->
+                <!--                                    android:id="@+id/latestTrans"-->
+                <!--                                    android:layout_width="wrap_content"-->
+                <!--                                    android:layout_height="wrap_content"-->
+                <!--                                    android:textSize="20sp"-->
+                <!--                                    android:fontFamily="@font/nimbus_bold"-->
+                <!--                                    android:layout_gravity="start"-->
+                <!--                                    android:gravity="start"-->
+                <!--                                    android:textColor="@color/blackColor"-->
+                <!--                                    android:text="@string/latest_transactions"/>-->
+
+                <!--                                <View-->
+                <!--                                    android:id="@+id/line"-->
+                <!--                                    android:layout_width="match_parent"-->
+                <!--                                    android:layout_height="2dp"-->
+                <!--                                    android:layout_marginTop="5dp"-->
+                <!--                                    android:background="@color/lineColor"/>-->
+                <!--                            </LinearLayout>-->
+
+                <!--                            &lt;!&ndash; Recyclerview: shows items&ndash;&gt;-->
+                <!--                            <androidx.recyclerview.widget.RecyclerView-->
+                <!--                                android:id="@+id/recentTransItemRv"-->
+                <!--                                android:layout_marginTop="25dp"-->
+                <!--                                android:layout_width="match_parent"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+                <!--                                tools:listitem="@layout/recent_card_record"-->
+                <!--                                android:paddingBottom="20dp"-->
+                <!--                                android:clipToPadding="false"/>-->
+
+                <!--                        </RelativeLayout>-->
+                <!--                    </com.google.android.material.card.MaterialCardView>-->
+                <!--                </RelativeLayout>-->
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

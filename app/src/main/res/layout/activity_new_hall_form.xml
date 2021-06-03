@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewHallForm">
+
+    <TextView
+        android:id="@+id/txtHeader"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="start"
+        android:text="Add a new hall"
+        android:fontFamily="@font/nimbus_bold"
+        android:textSize="14sp"
+        android:layout_marginStart="20dp" />
+
+    <LinearLayout
+        android:id="@+id/hallName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@+id/txtHeader"
+        app:layout_constraintStart_toStartOf="@+id/txtHeader"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/nimbus_regular"
+            android:text="Hall Name"
+            android:textColor="@color/txtColor"
+            android:textSize="@dimen/astrapos_text_size" />
+
+        <EditText
+            android:id="@+id/hallNameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/rectangle_grey_border"
+            android:hint="name"
+            android:textSize="@dimen/astrapos_text_size"
+            android:maxLength="11"
+            android:padding="15dp"
+            android:fontFamily="@font/nimbus_regular"
+            android:selectAllOnFocus="true" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/hallCapacity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintTop_toBottomOf="@+id/hallName"
+        app:layout_constraintStart_toStartOf="@+id/hallName"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hall Capacity"
+            android:textColor="@color/txtColor"
+            android:layout_marginTop="4dp"
+            android:textSize="@dimen/astrapos_text_size"
+            android:fontFamily="@font/nimbus_regular" />
+
+        <EditText
+            android:id="@+id/hallCapacityEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/rectangle_grey_border"
+            android:hint="Number of seats"
+            android:textSize="@dimen/astrapos_text_size"
+            android:maxLength="11"
+            android:inputType="number"
+            android:padding="15dp"
+            android:fontFamily="@font/nimbus_regular"
+            android:selectAllOnFocus="true" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Submit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="start"
+        android:background="@drawable/button_states"
+        android:enabled="true"
+        android:fontFamily="@font/nimbus_regular"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:autoSizeMinTextSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/hallCapacity"
+        app:layout_constraintStart_toStartOf="@+id/hallCapacity"
+        android:text="Submit"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

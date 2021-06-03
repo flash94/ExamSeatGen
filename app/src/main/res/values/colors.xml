@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#373B4A</color>
+    <color name="colorPrimaryDark">#75777C</color>
+    <color name="colorAccent">#373B74</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorWhite">#fff</color>
+    <color name="cardBgColor">#373B4A</color>
+    <color name="listIconBgColor">#E6EFFE</color>
+    <color name="backgroundColor">#F4F5FA</color>
+    <color name="fadeBgColor">#80CDD0D4</color>
+    <color name="txtColor">#454551</color>
+    <color name="subTxtColor">#50454551</color>
+    <color name="blackColor">#000000</color>
+    <color name="lineColor">#20454551</color>
+    <color name="borderColor">#e4e4e4</color>
+    <color name="colorGray">#e4e4e4</color>
+    <color name="colorGray1">#C0B6B6</color>
+    <color name="colorSecondaryPlus">#90DE8D2D</color>
+    <color name="colorSecondary">#FFC314</color>
+</resources>

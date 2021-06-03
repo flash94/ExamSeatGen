@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">ExamSitGen</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Enter Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="prompt_phonenumber">Enter Username</string>
+    <string name="prompt_login">Login</string>
+    <string name="welcome_back">Welcome Back,</string>
+    <string name="pay_bill">Pay Bill</string>
+    <string name="exam_sit_gen">ExamSitGen logo</string>
+    <string name="app_version">ExamSitGen Version 0.0.9-alpha</string>
+    <string name="forgot_pin">Forgot Password?</string>
+    <string name="enter_userId">Please type in your User Name</string>
+    <string name="prompt_submit">Submit</string>
+    <string name="login_to_continue">Login to continue</string>
+    <string name="profile_name">Tomiwa</string>
+</resources>

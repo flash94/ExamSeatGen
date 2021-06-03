@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.examsitgen">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ExamSitGen">
+        <activity android:name=".AllDepartments"></activity>
+        <activity android:name=".NewDeptForm" />
+        <activity android:name=".AddDepartmentsMain" />
+        <activity android:name=".AllocateSeatMain" />
+        <activity android:name=".NewExamForm" />
+        <activity android:name=".ExamMain" />
+        <activity android:name=".HallMain" />
+        <activity android:name=".NewHallForm" />
+        <activity android:name=".NewStudentForm" />
+        <activity android:name=".StudentsMain" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddDepartmentsMain">
+
+    <LinearLayout
+        android:id="@+id/addDepartment"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:padding="25dp"
+        android:clickable="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/card_bg_billpay"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight=".75"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/addHallTv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="50dp"
+                android:fontFamily="@font/nimbus_regular"
+                android:lineSpacingExtra="10dp"
+                android:lines="2"
+                android:text="Add new department"
+                android:textColor="@color/colorWhite"
+                android:textSize="14dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="right"
+            android:layout_weight=".25"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/airtimeNv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_chevron_right"
+                app:tint="@color/colorWhite" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!-- all Halls section-->
+
+    <LinearLayout
+        android:id="@+id/allDepartments"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:padding="25dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        app:layout_constraintTop_toBottomOf="@+id/addDepartment"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/card_bg_billpay">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight=".75"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/allHallsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="50dp"
+                android:fontFamily="@font/nimbus_regular"
+                android:lineSpacingExtra="10dp"
+                android:lines="2"
+                android:text="View all Departments"
+                android:textColor="@color/colorWhite"
+                android:textSize="14dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="right"
+            android:layout_weight=".25"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/navigateIco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_chevron_right"
+                app:tint="@color/colorWhite" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
