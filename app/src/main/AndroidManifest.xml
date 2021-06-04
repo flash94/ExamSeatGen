@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExamSitGen">
-        <activity android:name=".AllHalls"></activity>
+        <activity android:name=".AllocatingSeatLoader"></activity>
+        <activity android:name=".AllHalls" />
         <activity android:name=".AllStudents" />
         <activity android:name=".AllDepartments" />
         <activity android:name=".NewDeptForm" />

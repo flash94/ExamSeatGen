@@ -1,6 +1,7 @@
 package com.example.examsitgen.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.examsitgen.AllocatingSeatLoader;
 import com.example.examsitgen.R;
 import com.example.examsitgen.database.DbHelper;
 import com.example.examsitgen.models.HallDetailsModel;
@@ -62,11 +64,12 @@ public class HallsAdapter extends RecyclerView.Adapter<HallsAdapter.ItemHolderRe
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(context, "Selected " + hallName, Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(context, ItemDetailActivity.class);
+                Intent intent = new Intent(context, AllocatingSeatLoader.class);
 //                intent.putExtra("DEPARTMENT_ID", id);
 //                intent.putExtra("STUDENT_NUMBER", departmentStudentNo);
-//                context.startActivity(intent);
+                context.startActivity(intent);
                 //will later implement
 
             }

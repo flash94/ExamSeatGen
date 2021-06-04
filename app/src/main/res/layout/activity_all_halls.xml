@@ -21,6 +21,17 @@
         android:textSize="14sp"
         android:layout_marginStart="20dp" />
 
+    <com.example.kloadingspin.KLoadingSpin
+        android:id="@+id/KLoadingSpin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:backgroundColor="@color/backgroundColor"
+        app:primarySpinnerColor="#ffffff"
+        app:rotationSpeedInMs="3000"
+        app:text="Allocating seats..."
+        app:secondarySpinnerColor="@color/colorPrimary"
+        app:textColor="#ffffff"
+        app:textSize="80" />
     <!-- Recyclerview: shows items-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hallsRv"
