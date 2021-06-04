@@ -48,9 +48,9 @@ public class StudentsMain extends AppCompatActivity implements View.OnClickListe
             case R.id.addStudent:
                 startActivity(new Intent(getApplicationContext(), NewStudentForm.class));
                 break;
-//            case R.id.allStudents:
-//                startActivity(new Intent(getApplicationContext(), NewStudentForm.class));
-//                break;
+            case R.id.allStudents:
+                startActivity(new Intent(getApplicationContext(), AllStudents.class));
+                break;
         }
     }
 }

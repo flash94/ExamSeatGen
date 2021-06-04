@@ -51,7 +51,6 @@
             android:background="@drawable/rectangle_grey_border"
             android:hint="name"
             android:textSize="@dimen/astrapos_text_size"
-            android:maxLength="11"
             android:padding="15dp"
             android:fontFamily="@font/nimbus_regular"
             android:selectAllOnFocus="true" />
@@ -115,17 +114,40 @@
 
             android:fontFamily="@font/nimbus_regular" />
 
-        <EditText
-            android:id="@+id/studentDeptEt"
+        <RelativeLayout
+            android:id="@+id/spinnerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginRight="3dp"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
             android:background="@drawable/rectangle_grey_border"
-            android:hint="department"
-            android:textSize="@dimen/astrapos_text_size"
-            android:padding="15dp"
-            android:fontFamily="@font/nimbus_regular"
-            android:selectAllOnFocus="true" />
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/codeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:spinnerMode="dropdown"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@android:drawable/arrow_down_float" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -140,29 +162,28 @@
         app:layout_constraintStart_toStartOf="@+id/studentDept"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Student Course"
-            android:textColor="@color/txtColor"
-            android:layout_marginTop="4dp"
-            android:textSize="@dimen/astrapos_text_size"
+<!--        <TextView-->
+<!--            android:id="@+id/textView3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Student Course"-->
+<!--            android:textColor="@color/txtColor"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:textSize="@dimen/astrapos_text_size"-->
 
-            android:fontFamily="@font/nimbus_regular" />
+<!--            android:fontFamily="@font/nimbus_regular" />-->
 
-        <EditText
-            android:id="@+id/studentCourseEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/rectangle_grey_border"
-            android:hint="Student Course"
-            android:focusable="false"
-            android:textSize="@dimen/astrapos_text_size"
-            android:padding="15dp"
-            android:fontFamily="@font/nimbus_regular"
-            android:selectAllOnFocus="true" />
+<!--        <EditText-->
+<!--            android:id="@+id/studentCourseEt"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:background="@drawable/rectangle_grey_border"-->
+<!--            android:hint="Student Course"-->
+<!--            android:textSize="@dimen/astrapos_text_size"-->
+<!--            android:padding="15dp"-->
+<!--            android:fontFamily="@font/nimbus_regular"-->
+<!--            android:selectAllOnFocus="true" />-->
 
     </LinearLayout>
 
@@ -178,30 +199,53 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Student Level"
+            android:text="Level"
             android:textColor="@color/txtColor"
             android:layout_marginTop="4dp"
             android:textSize="@dimen/astrapos_text_size"
 
             android:fontFamily="@font/nimbus_regular" />
 
-        <EditText
-            android:id="@+id/studentLevelEt"
+        <RelativeLayout
+            android:id="@+id/levelSpinnerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginRight="3dp"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
             android:background="@drawable/rectangle_grey_border"
-            android:hint="Student Level"
-            android:focusable="false"
-            android:textSize="@dimen/astrapos_text_size"
-            android:padding="15dp"
-            android:fontFamily="@font/nimbus_regular"
-            android:selectAllOnFocus="true" />
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/levelSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:spinnerMode="dropdown"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@android:drawable/arrow_down_float" />
+
+        </RelativeLayout>
 
     </LinearLayout>
+
 
 
 

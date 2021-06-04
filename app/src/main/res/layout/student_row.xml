@@ -15,7 +15,7 @@
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/itemIv"
-            android:src="@drawable/book"
+            android:src="@drawable/graduated"
             app:riv_corner_radius="50dp"
             app:riv_border_width="1dp"
             app:riv_border_color="@color/colorGray1"
@@ -34,16 +34,25 @@
 
             <!--Itemname-->
             <TextView
-                android:id="@+id/departmentNameTv"
+                android:id="@+id/studentNameTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
                 android:fontFamily="@font/nimbus_bold"
                 android:textSize="14sp"
-                android:text="Department Name"/>
+                android:text="Student Name"/>
 
             <TextView
-                android:id="@+id/deptStudentNoTv"
+                android:id="@+id/studentDeptTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"
+                android:fontFamily="@font/nimbus_regular"
+                android:textSize="14sp"
+                android:text="Department"/>
+
+            <TextView
+                android:id="@+id/studentLevelTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
@@ -51,26 +60,45 @@
                 android:textSize="14sp"
                 android:text="Level"/>
 
-            <TextView
-                android:id="@+id/deptLevelTv"
+            <LinearLayout
+                android:id="@+id/assignedHallLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:fontFamily="@font/nimbus_regular"
-                android:textSize="14sp"
-                android:text="Capacity"/>
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/studentHallTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/nimbus_regular"
+                    android:textSize="14sp"
+                    android:text="Hall Name"/>
+
+                <TextView
+                    android:id="@+id/seatNo"
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/nimbus_regular"
+                    android:textSize="14sp"
+                    android:text="Seat No"/>
+            </LinearLayout>
 
         </LinearLayout>
 
         <!--to show option like delete, edit etc-->
-<!--        <ImageButton-->
-<!--            android:id="@+id/moreBtn"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_more_black"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:background="@null"-->
-<!--            android:layout_alignParentRight="true"/>-->
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/moreBtn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:src="@drawable/ic_more_black"-->
+        <!--            android:layout_alignParentEnd="true"-->
+        <!--            android:background="@null"-->
+        <!--            android:layout_alignParentRight="true"/>-->
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

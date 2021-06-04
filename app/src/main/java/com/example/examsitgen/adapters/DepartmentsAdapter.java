@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.examsitgen.AllHalls;
 import com.example.examsitgen.R;
 import com.example.examsitgen.database.DbHelper;
 import com.example.examsitgen.models.DepartmentModel;
@@ -69,11 +70,12 @@ public class DepartmentsAdapter extends RecyclerView.Adapter<DepartmentsAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Login Failed! Invalid Login credentials", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(context, ItemDetailActivity.class);
-//                intent.putExtra("DEPARTMENT_ID", id);
-//                intent.putExtra("STUDENT_NUMBER", departmentStudentNo);
-//                context.startActivity(intent);
+                //Toast.makeText(context, "Selected " + departmentName, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, AllHalls.class);
+                intent.putExtra("DEPARTMENT_ID", id);
+                intent.putExtra("DEPARTMENT_NAME", departmentName);
+                intent.putExtra("DEPARTMENT_STUDENT_NO", departmentStudentNo);
+                context.startActivity(intent);
                 //will later implement
 
             }

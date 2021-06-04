@@ -50,9 +50,9 @@ public class HallMain extends AppCompatActivity implements View.OnClickListener{
             case R.id.addHall:
                 startActivity(new Intent(getApplicationContext(), NewHallForm.class));
                 break;
-//            case R.id.allHalls:
-//                startActivity(new Intent(getApplicationContext(), NewStudentForm.class));
-//                break;
+            case R.id.allHalls:
+                startActivity(new Intent(getApplicationContext(), AllHalls.class));
+                break;
         }
     }
 }

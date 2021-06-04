@@ -38,8 +38,9 @@ public class NewHallForm extends AppCompatActivity implements View.OnClickListen
         //back button
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
-        initListeners();
+
         initViews();
+        initListeners();
         initObjects();
     }
 
@@ -92,12 +93,12 @@ public class NewHallForm extends AppCompatActivity implements View.OnClickListen
 
                 dbHelper.insertHall(hallDetailsModel);
                 // progressbar.setVisibility(View.INVISIBLE);
-                Toast.makeText(this, "New Hall" + "Added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "New Hall" + "Added", Toast.LENGTH_LONG).show();
                 //startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 emptyInputEditText();
             }
             else{
-                Toast.makeText(this, "Registration failed! User already exists", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Registration failed! Hall already exists", Toast.LENGTH_LONG).show();
             }
         }
     }

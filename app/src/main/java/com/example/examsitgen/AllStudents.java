@@ -4,18 +4,17 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.examsitgen.adapters.DepartmentsAdapter;
+import com.example.examsitgen.adapters.StudentsAdapter;
 import com.example.examsitgen.database.Constants;
 import com.example.examsitgen.database.DbHelper;
 
-public class AllDepartments extends AppCompatActivity {
+public class AllStudents extends AppCompatActivity {
 
-    private RecyclerView departmentsRv;
+
+    private RecyclerView studentsRv;
 
     //db helper
     private DbHelper dbHelper;
@@ -29,43 +28,36 @@ public class AllDepartments extends AppCompatActivity {
 //    String orderByTitleAsc = Constants.C_ITEM_NAME + " ASC";
 //    String orderByTitleDesc = Constants.C_ITEM_NAME + " DESC";
 
-    //for refreshing items, refresh with last choosen sort option
+    //for refreshing items, refresh with last choosen sort
     String currentOrderByStatus = orderByNewest;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_departments);
+        setContentView(R.layout.activity_all_students);
 
         //init actionbar
         actionBar = getSupportActionBar();
         //actionbar title
-        actionBar.setTitle("All Departments");
+        actionBar.setTitle("All Students");
         //back button
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
 
-        departmentsRv = findViewById(R.id.departmentsRv);
+        studentsRv = findViewById(R.id.studentsRv);
 
         //init db helper class
         dbHelper = new DbHelper(this);
 
         //load records (default newest first)
-        loadDepartments(orderByNewest);
+        loadStudents(orderByNewest);
     }
 
-    private void loadDepartments(String orderByNewest) {
+    private void loadStudents(String orderByNewest) {
         currentOrderByStatus = orderByNewest;
-        DepartmentsAdapter adapterItem = new DepartmentsAdapter(AllDepartments.this,
-                dbHelper.getAllDepartments(orderByNewest));
-        departmentsRv.setAdapter(adapterItem);
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-        loadDepartments(currentOrderByStatus); // refresh Item list
+        StudentsAdapter adapterItem = new StudentsAdapter(AllStudents.this,
+                dbHelper.getAllStudents(orderByNewest));
+        studentsRv.setAdapter(adapterItem);
     }
 
     @Override

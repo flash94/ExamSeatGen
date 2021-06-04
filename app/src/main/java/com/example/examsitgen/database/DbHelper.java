@@ -241,11 +241,11 @@ public class DbHelper extends SQLiteOpenHelper {
         return id;
 
     }
-    public boolean checkHallExist(String courseCode){
+    public boolean checkHallExist(String hallName){
         String[] column = {H_ID};
         SQLiteDatabase db = this.getReadableDatabase();
         String selection = H_HALL_NAME+ " = ?";
-        String[] selectionArgs= {courseCode,};
+        String[] selectionArgs= {hallName,};
 
         Cursor cursor = db.query(HALLS_TABLE,column,selection,selectionArgs,null,null,null);
         int Cursorcount = cursor.getCount();
@@ -363,5 +363,38 @@ public class DbHelper extends SQLiteOpenHelper {
 
         //return the list
         return studentsList;
+    }
+
+    //get all students from sqlite database
+    public ArrayList<HallDetailsModel> getAllHalls(String orderBy){
+        //orderby query will allow to sort data e.g newest/oldest first, name ascending/descending
+        //it will return list of items since we have used return type ArrayList<ModelItems>
+
+        ArrayList<HallDetailsModel> hallsList = new ArrayList<>();
+        //query to select records
+        String selectQuery = "SELECT * FROM " + HALLS_TABLE + " ORDER BY " + orderBy;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //looping through all records and add to list
+        if(cursor.moveToFirst()){
+            do{
+                HallDetailsModel hallDetailsModel = new HallDetailsModel();
+                hallDetailsModel.setHallName(cursor.getString(cursor.getColumnIndex(H_HALL_NAME)));
+                hallDetailsModel.setHallCapacity(cursor.getString(cursor.getColumnIndex(H_HALL_CAPACITY)));
+                hallDetailsModel.setId(cursor.getString(cursor.getColumnIndex(H_ID)));
+                hallDetailsModel.setAddedTime(""+cursor.getString(cursor.getColumnIndex(Constants.S_ADDED_TIMESTAMP)));
+                hallDetailsModel.setUpdatedTime(""+cursor.getString(cursor.getColumnIndex(Constants.S_UPDATED_TIMESTAMP)));
+
+                //add record to list
+                hallsList.add(hallDetailsModel);
+            }while (cursor.moveToNext());
+        }
+        //close db connection
+        db.close();
+
+        //return the list
+        return hallsList;
     }
 }

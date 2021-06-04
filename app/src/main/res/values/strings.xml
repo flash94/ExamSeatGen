@@ -12,8 +12,8 @@
     <string name="prompt_login">Login</string>
     <string name="welcome_back">Welcome Back,</string>
     <string name="pay_bill">Pay Bill</string>
-    <string name="exam_sit_gen">ExamSitGen logo</string>
-    <string name="app_version">ExamSitGen Version 0.0.9-alpha</string>
+    <string name="exam_sit_gen">ExamSeatGen logo</string>
+    <string name="app_version">ExamSeatGen Version 0.0.9-alpha</string>
     <string name="forgot_pin">Forgot Password?</string>
     <string name="enter_userId">Please type in your User Name</string>
     <string name="prompt_submit">Submit</string>

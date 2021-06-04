@@ -1,5 +1,6 @@
  package com.example.examsitgen;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -15,12 +16,17 @@ import android.widget.LinearLayout;
      private CardView examCard;
      private CardView allocateSeatsCard;
 
+     ActionBar actionBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
         initListeners();
+
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("ExamSeatGen");
     }
 
      private void initViews(){
