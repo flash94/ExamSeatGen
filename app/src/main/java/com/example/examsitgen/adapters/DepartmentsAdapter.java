@@ -72,7 +72,7 @@ public class DepartmentsAdapter extends RecyclerView.Adapter<DepartmentsAdapter.
             public void onClick(View v) {
                 //Toast.makeText(context, "Selected " + departmentName, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context, AllHalls.class);
-                intent.putExtra("DEPARTMENT_ID", id);
+                intent.putExtra("DEPARTMENT_LEVEL", departmentLevel);
                 intent.putExtra("DEPARTMENT_NAME", departmentName);
                 intent.putExtra("DEPARTMENT_STUDENT_NO", departmentStudentNo);
                 context.startActivity(intent);

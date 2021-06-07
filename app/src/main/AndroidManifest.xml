@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExamSitGen">
-        <activity android:name=".AllocatingSeatLoader"></activity>
+        <activity android:name=".AllAllocatedStudents"></activity>
+        <activity android:name=".SitAllocationSuccess" />
+        <activity android:name=".SitAllocationFailed" />
+        <activity android:name=".AllocatingSeatLoader" />
         <activity android:name=".AllHalls" />
         <activity android:name=".AllStudents" />
         <activity android:name=".AllDepartments" />

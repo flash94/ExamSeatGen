@@ -1,6 +1,9 @@
 package com.example.examsitgen.database;
 
 public class Constants {
+
+    public static final String DEPARTMENT_SELECTED = "";
+    public static final String DEPARTMENT_LEVEL= "";
     //db name
     public static final String DB_NAME = "EXAMSITGEN_DB";
     //db version

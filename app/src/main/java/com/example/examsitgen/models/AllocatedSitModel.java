@@ -3,21 +3,6 @@ package com.example.examsitgen.models;
 public class AllocatedSitModel {
     String id, studentName, studentId, studentLevel, studentDepartment, studentCourse, hallName, sitNumber, courseTitle, courseCode, addedTime, updatedTime;
 
-    public AllocatedSitModel(String id, String studentName, String studentId, String studentLevel, String studentDepartment, String studentCourse, String hallName, String sitNumber, String courseTitle, String courseCode, String addedTime, String updatedTime) {
-        this.id = id;
-        this.studentName = studentName;
-        this.studentId = studentId;
-        this.studentLevel = studentLevel;
-        this.studentDepartment = studentDepartment;
-        this.studentCourse = studentCourse;
-        this.hallName = hallName;
-        this.sitNumber = sitNumber;
-        this.courseTitle = courseTitle;
-        this.courseCode = courseCode;
-        this.addedTime = addedTime;
-        this.updatedTime = updatedTime;
-    }
-
     public String getId() {
         return id;
     }

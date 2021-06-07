@@ -6,4 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".SitAllocationSuccess">
 
+    <LinearLayout
+        android:id="@+id/successPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_circle"
+            android:layout_gravity="center" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10dp"
+            android:layout_marginTop="10dp"
+            android:lines="2"
+            android:textColor="@color/txtColor"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:text="Sit Allocation\nSuccessful"
+            android:fontFamily="@font/nimbus_regular" />
+
+
+        <Button
+            android:id="@+id/allocatedSits"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_states"
+            android:fontFamily="@font/nimbus_regular"
+            android:enabled="true"
+            android:text="View allocated sits"
+            android:textColor="@color/colorSecondary"
+            android:textSize="18dp"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@ public class AllHalls extends AppCompatActivity {
     //action bar
     ActionBar actionBar;
 
-    String   departmentId, departmentName, departmentTotalNo;
+    String   departmentLevel, departmentName, departmentTotalNo;
 
     //sort options
     String orderByNewest = Constants.D_ADDED_TIMESTAMP + " DESC";
@@ -38,7 +38,7 @@ public class AllHalls extends AppCompatActivity {
         setContentView(R.layout.activity_all_halls);
 
         Intent intent = getIntent();
-        departmentId = intent.getStringExtra("DEPARTMENT_ID");
+        departmentLevel = intent.getStringExtra("DEPARTMENT_LEVEL");
         departmentName= intent.getStringExtra("DEPARTMENT_NAME");
         departmentTotalNo = intent.getStringExtra("DEPARTMENT_STUDENT_NO");
 
@@ -64,7 +64,7 @@ public class AllHalls extends AppCompatActivity {
 
         currentOrderByStatus = orderByNewest;
         HallsAdapter adapterItem = new HallsAdapter(AllHalls.this,
-                dbHelper.getAllHalls(orderByNewest));
+                dbHelper.getAllHalls(orderByNewest), departmentLevel, departmentName, departmentTotalNo);
         hallsRv.setAdapter(adapterItem);
     }
 
