@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import static com.example.examsitgen.database.Constants.ALLOCATED_SITS_TABLE;
 import static com.example.examsitgen.database.Constants.A_ID;
+import static com.example.examsitgen.database.Constants.A_STUDENT_ID;
 import static com.example.examsitgen.database.Constants.A_STUDENT_NAME;
 import static com.example.examsitgen.database.Constants.DEPARTMENT_TABLE;
 import static com.example.examsitgen.database.Constants.D_DEPT_LEVEL;
@@ -452,7 +453,7 @@ public class DbHelper extends SQLiteOpenHelper {
         //id will be inserted and autoincrement authomatically
         //insert data
         values.put(A_STUDENT_NAME, allocatedSitModel.getStudentName());
-        values.put(Constants.A_STUDENT_ID, allocatedSitModel.getStudentId());
+        values.put(A_STUDENT_ID, allocatedSitModel.getStudentId());
         values.put(Constants.A_STUDENT_LEVEL, allocatedSitModel.getStudentLevel());
         values.put(Constants.A_STUDENT_DEPT, allocatedSitModel.getStudentDepartment());
         values.put(Constants.A_STUDENT_COURSE, allocatedSitModel.getStudentCourse());
@@ -473,7 +474,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public boolean checkStudentHaveHall(String id){
         String[] column = {A_ID};
         SQLiteDatabase db = this.getReadableDatabase();
-        String selection = Constants.A_STUDENT_ID + " = ?";
+        String selection = A_STUDENT_ID + " = ?";
         String[] selectionArgs= {id,};
 
         Cursor cursor = db.query(ALLOCATED_SITS_TABLE,column,selection,selectionArgs,null,null,null);
@@ -484,5 +485,44 @@ public class DbHelper extends SQLiteOpenHelper {
         }
         return false;
     }
+
+    //get all students from sqlite database
+    public ArrayList<AllocatedSitModel> getAllAllocatedStudents(String orderBy){
+        //orderby query will allow to sort data e.g newest/oldest first, name ascending/descending
+        //it will return list of items since we have used return type ArrayList<ModelItems>
+
+        ArrayList<AllocatedSitModel> allocatedStudentsList = new ArrayList<>();
+        //query to select records
+        String selectQuery = "SELECT * FROM " + ALLOCATED_SITS_TABLE + " ORDER BY " + orderBy;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //looping through all records and add to list
+        if(cursor.moveToFirst()){
+            do{
+                AllocatedSitModel allocatedSitModel = new AllocatedSitModel();
+                allocatedSitModel.setId(cursor.getString(cursor.getColumnIndex(A_ID)));
+                allocatedSitModel.setStudentName(cursor.getString(cursor.getColumnIndex(A_STUDENT_NAME)));
+                allocatedSitModel.setStudentId(cursor.getString(cursor.getColumnIndex(A_STUDENT_ID)));
+                allocatedSitModel.setStudentLevel(cursor.getString(cursor.getColumnIndex(Constants.A_STUDENT_LEVEL)));
+                allocatedSitModel.setStudentDepartment(cursor.getString(cursor.getColumnIndex(Constants.A_STUDENT_DEPT)));
+                allocatedSitModel.setStudentCourse(cursor.getString(cursor.getColumnIndex(Constants.A_STUDENT_COURSE)));
+                allocatedSitModel.setHallName(cursor.getString(cursor.getColumnIndex(Constants.A_HALL_NAME)));
+                allocatedSitModel.setSitNumber(cursor.getString(cursor.getColumnIndex(Constants.A_SIT_NUMBER)));
+                allocatedSitModel.setAddedTime(""+cursor.getString(cursor.getColumnIndex(Constants.A_ADDED_TIMESTAMP)));
+                allocatedSitModel.setUpdatedTime(""+cursor.getString(cursor.getColumnIndex(Constants.A_UPDATED_TIMESTAMP)));
+
+                //add record to list
+               allocatedStudentsList.add(allocatedSitModel);
+            }while (cursor.moveToNext());
+        }
+        //close db connection
+        db.close();
+
+        //return the list
+        return allocatedStudentsList;
+    }
+
 
 }

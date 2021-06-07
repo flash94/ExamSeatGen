@@ -95,6 +95,10 @@ public class AllocatingSeatLoader extends AppCompatActivity {
                     Toast.makeText(this, "Student already assigned to hall", Toast.LENGTH_LONG).show();
                 }
 
+                Toast.makeText(this, "Sit Allocation Completed,", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(AllocatingSeatLoader.this, SitAllocationSuccess.class);
+                startActivity(intent);
+
             }
         }
 

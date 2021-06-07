@@ -48,8 +48,11 @@ public class AllocateSeatMain extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.addSeat:
-                Intent intent;
                 startActivity(new Intent(getApplicationContext(), AllDepartments.class));
+                break;
+
+            case R.id.allSeats:
+                startActivity(new Intent(getApplicationContext(), AllAllocatedStudents.class));
                 break;
         }
     }

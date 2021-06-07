@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:gravity="start"
-        android:text="All registered halls"
+        android:text="All Allocated Students"
         android:fontFamily="@font/nimbus_bold"
         android:textSize="14sp"
         android:layout_marginStart="20dp" />
@@ -35,7 +35,7 @@
         app:textSize="80" />
     <!-- Recyclerview: shows items-->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/hallsRv"
+        android:id="@+id/allocatedStudentsRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

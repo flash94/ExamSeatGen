@@ -20,7 +20,7 @@ public class SitAllocationSuccess extends AppCompatActivity {
         allocatedSits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SitAllocationSuccess.this, MainActivity.class);
+                Intent intent = new Intent(SitAllocationSuccess.this, AllAllocatedStudents.class);
                 startActivity(intent);
                 finish();
             }
