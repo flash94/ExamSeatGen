@@ -1,5 +1,9 @@
 package com.example.examsitgen.database;
 
+import com.example.examsitgen.models.AllocatedSitModel;
+
+import java.util.ArrayList;
+
 public class Constants {
 
     public static final String DEPARTMENT_SELECTED = "";
@@ -8,8 +12,12 @@ public class Constants {
     public static final String DB_NAME = "EXAMSITGEN_DB";
     //db version
     public static final int DB_VERSION = 1;
+
+
+    public static ArrayList<AllocatedSitModel> loadedSearchItems;
     //table name
     public static final String USERS_TABLE = "USER_TABLE";
+    public static final String STUDENT_USER_TABLE = "STUDENT_USER_TABLE";
     public static final String EXAMS_TABLE = "EXAM_TABLE";
     public static final String HALLS_TABLE = "HALL_TABLE";
     public static final String STUDENTS_TABLE = "STUDENT_TABLE";
@@ -24,6 +32,15 @@ public class Constants {
     public static final  String U_ROLE = "ROLE";
     public static final  String U_ROLEID = "ROLE_ID";
     public static final  String U_ADDED_TIMESTAMP = "ADDED_TIME_STAMP";
+
+    //columns/fields of STUDENT USERS TABLE
+    public static final  String SU_ID = "ID";
+    public static final  String SU_USERNAME = "USER_NAME";
+    public static final  String SU_EMAIL= "EMAIL";
+    public static final  String SU_PASSWORD = "PASSWORD";
+    public static final  String SU_ROLE = "ROLE";
+    public static final  String SU_ROLEID = "ROLE_ID";
+    public static final  String SU_ADDED_TIMESTAMP = "ADDED_TIME_STAMP";
 
 
     //columns/fields of STUDENTS TABLE
@@ -88,6 +105,17 @@ public class Constants {
             + U_ROLE + " TEXT,"
             + U_ROLEID + " INTEGER,"
             + U_ADDED_TIMESTAMP + " TEXT"
+            + ")";
+
+    //Create USERS table query
+    public static final  String CREATE_STUDENT_USERS_TABLE = "CREATE TABLE " + STUDENT_USER_TABLE + "("
+            + SU_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + SU_USERNAME + " TEXT,"
+            + SU_EMAIL + " TEXT,"
+            + SU_PASSWORD + " TEXT,"
+            + SU_ROLE + " TEXT,"
+            + SU_ROLEID + " INTEGER,"
+            + SU_ADDED_TIMESTAMP + " TEXT"
             + ")";
 
 

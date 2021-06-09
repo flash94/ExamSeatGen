@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,9 +21,16 @@ import com.example.examsitgen.models.UserModel;
 import java.util.ArrayList;
 
 import static com.example.examsitgen.database.Constants.ALLOCATED_SITS_TABLE;
+import static com.example.examsitgen.database.Constants.A_ADDED_TIMESTAMP;
+import static com.example.examsitgen.database.Constants.A_HALL_NAME;
 import static com.example.examsitgen.database.Constants.A_ID;
+import static com.example.examsitgen.database.Constants.A_SIT_NUMBER;
+import static com.example.examsitgen.database.Constants.A_STUDENT_COURSE;
+import static com.example.examsitgen.database.Constants.A_STUDENT_DEPT;
 import static com.example.examsitgen.database.Constants.A_STUDENT_ID;
+import static com.example.examsitgen.database.Constants.A_STUDENT_LEVEL;
 import static com.example.examsitgen.database.Constants.A_STUDENT_NAME;
+import static com.example.examsitgen.database.Constants.A_UPDATED_TIMESTAMP;
 import static com.example.examsitgen.database.Constants.DEPARTMENT_TABLE;
 import static com.example.examsitgen.database.Constants.D_DEPT_LEVEL;
 import static com.example.examsitgen.database.Constants.D_DEPT_NAME;
@@ -49,6 +57,7 @@ import static com.example.examsitgen.database.Constants.USERS_TABLE;
 import static com.example.examsitgen.database.Constants.U_EMAIL;
 import static com.example.examsitgen.database.Constants.U_ID;
 import static com.example.examsitgen.database.Constants.U_PASSWORD;
+import static com.example.examsitgen.database.Constants.U_ROLE;
 import static com.example.examsitgen.database.Constants.U_USERNAME;
 
 public class DbHelper extends SQLiteOpenHelper {
@@ -125,11 +134,11 @@ public class DbHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    public boolean loginUser(String userName, String password){
+    public boolean loginUser(String userName, String password, String role){
         String[] column = {U_ID};
         SQLiteDatabase db = this.getReadableDatabase();
-        String selection = U_USERNAME + " = ?" + " AND " + U_PASSWORD + " = ?";
-        String[] selectionArgs= {userName,password};
+        String selection = U_USERNAME + " = ?" + " AND " + U_PASSWORD + " = ?" + " AND " + U_ROLE + " = ?";
+        String[] selectionArgs= {userName,password,role};
 
         Cursor cursor = db.query(USERS_TABLE,column,selection,selectionArgs,null,null,null);
         int Cursorcount = cursor.getCount();
@@ -524,5 +533,48 @@ public class DbHelper extends SQLiteOpenHelper {
         return allocatedStudentsList;
     }
 
+    //search data
+    public ArrayList<AllocatedSitModel> searchItems(String query){
+        //orderby query will allow to sort data e.g newest/oldest first, name ascending/descending
+        //it will return list of items since we have used return type ArrayList<ModelItems>
+
+        ArrayList<AllocatedSitModel>searchList = new ArrayList<>();
+        //query to select records
+        //String selectQuery = "SELECT * FROM " + ALLOCATED_SITS_TABLE + " WHERE " + A_STUDENT_ID  + " LIKE '%" + query +" '%";
+
+        String[] column = {A_ID, A_STUDENT_ID, A_STUDENT_NAME, A_STUDENT_ID, A_STUDENT_LEVEL, A_STUDENT_DEPT, A_STUDENT_COURSE, A_HALL_NAME, A_SIT_NUMBER, A_ADDED_TIMESTAMP, A_UPDATED_TIMESTAMP};
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selection = A_STUDENT_ID + " = ?";
+        String[] selectionArgs= {query,};
+
+        Cursor cursor = db.query(ALLOCATED_SITS_TABLE,column,selection,selectionArgs,null,null,null);
+
+        //Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //looping through all records and add to list
+        if(cursor.moveToFirst()){
+            do{
+                AllocatedSitModel allocatedSitModel = new AllocatedSitModel();
+                allocatedSitModel.setId(cursor.getString(cursor.getColumnIndex(A_ID)));
+                allocatedSitModel.setStudentName(cursor.getString(cursor.getColumnIndex(A_STUDENT_NAME)));
+                allocatedSitModel.setStudentId(cursor.getString(cursor.getColumnIndex(A_STUDENT_ID)));
+                allocatedSitModel.setStudentLevel(cursor.getString(cursor.getColumnIndex(Constants.A_STUDENT_LEVEL)));
+                allocatedSitModel.setStudentDepartment(cursor.getString(cursor.getColumnIndex(Constants.A_STUDENT_DEPT)));
+                allocatedSitModel.setStudentCourse(cursor.getString(cursor.getColumnIndex(Constants.A_STUDENT_COURSE)));
+                allocatedSitModel.setHallName(cursor.getString(cursor.getColumnIndex(Constants.A_HALL_NAME)));
+                allocatedSitModel.setSitNumber(cursor.getString(cursor.getColumnIndex(Constants.A_SIT_NUMBER)));
+                allocatedSitModel.setAddedTime(""+cursor.getString(cursor.getColumnIndex(Constants.A_ADDED_TIMESTAMP)));
+                allocatedSitModel.setUpdatedTime(""+cursor.getString(cursor.getColumnIndex(Constants.A_UPDATED_TIMESTAMP)));
+
+                //add record to list
+                searchList.add(allocatedSitModel);
+            }while (cursor.moveToNext());
+        }
+        //close db connection
+        db.close();
+
+        //return the list
+        return searchList;
+    }
 
 }

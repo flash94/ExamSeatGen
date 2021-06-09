@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/fragment_horizontal_margin"
+    android:paddingTop="@dimen/fragment_vertical_margin"
+    android:paddingRight="@dimen/fragment_horizontal_margin"
+    android:paddingBottom="@dimen/fragment_vertical_margin"
+    tools:context=".StudentSitSearch">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        tools:context=".views.fragments.HomeLandingFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:padding="0dp"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/mainBg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/backgroundColor">
+                <RelativeLayout
+                    android:id="@+id/topContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginTop="20dp">
+                    <LinearLayout
+                        android:id="@+id/leftContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:orientation="horizontal"
+                        tools:ignore="RelativeOverlap"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/userImage"
+                            android:layout_width="45dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_height="45dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_profile"
+                            android:layout_marginLeft="10dp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/userFirstname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/nimbus_bold"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="15dp"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Student"
+                            tools:ignore="RelativeOverlap"
+                            android:layout_marginLeft="15dp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/userIdLbl"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@+id/topContent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nimbus_regular"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/txtColor"
+                        android:text="Enter your student identification number to search for your details" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/usernameEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/userIdLbl"
+                    android:background="@drawable/rectangle_grey_border">
+
+                    <ImageView
+                        android:id="@+id/userIcon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:padding="15dp"
+                        android:icon="@drawable/magnify"
+                        android:background="@drawable/icon_bg" />
+
+                    <EditText
+                        android:id="@+id/searchEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Ender Id"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/nimbus_regular"
+                        android:layout_toRightOf="@+id/userIcon"
+                        android:selectAllOnFocus="true"
+                        android:paddingLeft="15dp"
+                        android:layout_toEndOf="@+id/userIcon"
+                        android:paddingStart="15dp"
+                        tools:ignore="RtlSymmetry" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/registerBtnArea"
+                    android:layout_marginTop="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/usernameEntry">
+
+                    <LinearLayout
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/searchBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_gravity="start"
+                            android:background="@drawable/button_states"
+                            android:enabled="true"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorWhite"
+                            android:text="Search"
+                            android:textAllCaps="false"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/password"
+                            app:layout_constraintVertical_bias="0.2" />
+
+                        <ProgressBar
+                            android:id="@+id/loading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="64dp"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginBottom="64dp"
+                            android:visibility="gone"
+                            app:layout_constraintVertical_bias="0.3" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

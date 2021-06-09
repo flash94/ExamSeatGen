@@ -2,6 +2,8 @@ package com.example.examsitgen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -62,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.registerBtn:
-                registerUser();
+                showUserTypeDialog();
                 break;
             case R.id.signIn:
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
@@ -74,8 +76,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void registerUser() {
        // progressbar.setVisibility(View.VISIBLE);
         timeStamp = ""+System.currentTimeMillis();
-        role = "Admin";
-        roleId = 1;
+
 
         if(userNameEt.getText().toString().matches("") || passwordEt.getText().toString().matches("") || emailEt.getText().toString().matches("") ){
             Toast.makeText(this, "Please fill all fields to proceed", Toast.LENGTH_LONG).show();
@@ -105,5 +106,39 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         userNameEt.setText(null);
         emailEt.setText(null);
         passwordEt.setText(null);
+    }
+
+    private void showUserTypeDialog() {
+        //options to display in dialog
+        String[] options = {"Admin", "Student"};
+        //dialog
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //add items to dialog
+        builder.setTitle("Register as ");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //handle item clicks
+                if (which==0){
+                    //Edit is clicked
+                    role = "Admin";
+                    roleId = 1;
+                    registerUser();
+                }
+                else if(which==1){
+                    role = "Student";
+                    roleId = 5;
+                    //delete is clicked
+                    registerUser();
+
+                }
+            }
+        });
+        //show dialog
+        builder.create().show();
+    }
+
+    private void registerStudent() {
+        Toast.makeText(this, "Login student", Toast.LENGTH_LONG).show();
     }
 }

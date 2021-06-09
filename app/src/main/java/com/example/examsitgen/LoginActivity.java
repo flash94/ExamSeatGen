@@ -2,6 +2,8 @@ package com.example.examsitgen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView signUpText;
     private EditText usernameEt, passwordEt;
     Button login;
+    String role;
 
 
     //db helper
@@ -60,7 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()){
             case R.id.loginBtn:
-                loginUser();
+                showUserTypeDialog();
                 break;
             case R.id.signUp:
                 startActivity(new Intent(this,RegisterActivity.class));
@@ -70,12 +73,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void loginUser() {
+    private void loginAdmin() {
         if(usernameEt.getText().toString().matches("") || passwordEt.getText().toString().matches("")){
             Toast.makeText(this, "Please fill all fields to proceed", Toast.LENGTH_LONG).show();
         }
         else{
-            if(dbHelper.loginUser(usernameEt.getText().toString(),passwordEt.getText().toString())){
+            if(dbHelper.loginUser(usernameEt.getText().toString(),passwordEt.getText().toString(),role)){
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             }
@@ -84,5 +87,48 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         }
 
+    }
+
+    private void showUserTypeDialog() {
+        //options to display in dialog
+        String[] options = {"Admin", "Student"};
+        //dialog
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //add items to dialog
+        builder.setTitle("Select your profile type");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //handle item clicks
+                if (which==0){
+                    //Edit is clicked
+                    role = "Admin";
+                    loginAdmin();
+                }
+                else if(which==1){
+                    //delete is clicked
+                    role = "Student";
+                    loginStudent();
+
+                }
+            }
+        });
+        //show dialog
+        builder.create().show();
+    }
+
+    private void loginStudent() {
+        if(usernameEt.getText().toString().matches("") || passwordEt.getText().toString().matches("")){
+            Toast.makeText(this, "Please fill all fields to proceed", Toast.LENGTH_LONG).show();
+        }
+        else{
+            if(dbHelper.loginUser(usernameEt.getText().toString(),passwordEt.getText().toString(), role)){
+                Intent intent = new Intent(this, StudentSitSearch.class);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(this, "Login Failed! Invalid Login credentials", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
